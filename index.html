@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,9 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Cormorant+Garamond:ital,wght@1,400;1,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Cormorant+Garamond:ital,wght@1,400;1,600&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
@@ -45,7 +48,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: 
+            background-image:
                 radial-gradient(circle at 2px 2px, rgba(46, 64, 54, 0.05) 1px, transparent 0);
             background-size: 32px 32px;
             z-index: -1;
@@ -132,7 +135,7 @@
             transform: translateY(-8px);
             border-color: var(--accent-color);
             background: #fff;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
         }
 
         .app-card:hover::after {
@@ -211,11 +214,17 @@
 
         /* Responsive Tweaks */
         @media (max-width: 600px) {
-            header { padding: 2rem 1rem; }
-            .hub-grid { grid-template-columns: 1fr; }
+            header {
+                padding: 2rem 1rem;
+            }
+
+            .hub-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
+
 <body>
     <header>
         <span class="header-pre">Sistema de Control Central</span>
@@ -225,7 +234,7 @@
     <main>
         <div class="hub-grid">
             <!-- MotorMaster -->
-            <a href="https://github.com/Dowhi/MotorMaster" class="app-card">
+            <a href="https://dowhi.github.io/MotorMaster/" class="app-card">
                 <div class="icon-container">
                     <i data-lucide="gauge"></i>
                 </div>
@@ -240,7 +249,7 @@
             </a>
 
             <!-- CRONICOM -->
-            <a href="#" class="app-card">
+            <a href="https://dowhi.github.io/CRONICOM/" class="app-card">
                 <div class="icon-container">
                     <i data-lucide="activity"></i>
                 </div>
@@ -255,7 +264,7 @@
             </a>
 
             <!-- TAppXI-Basic -->
-            <a href="#" class="app-card">
+            <a href="https://dowhi.github.io/TAppXI-Basic/" class="app-card">
                 <div class="icon-container">
                     <i data-lucide="map-pin"></i>
                 </div>
@@ -270,7 +279,7 @@
             </a>
 
             <!-- tappxi-web-réplica -->
-            <a href="#" class="app-card">
+            <a href="https://dowhi.github.io/tappxi-web-replica/" class="app-card">
                 <div class="icon-container">
                     <i data-lucide="layers"></i>
                 </div>
@@ -310,4 +319,5 @@
         lucide.createIcons();
     </script>
 </body>
+
 </html>
