@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUB MASTER | Ecosistema de Aplicaciones</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Cormorant+Garamond:ital,wght@1,400;1,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --bg-color: #F2F0E9;
+            --primary-color: #2E4036;
+            --accent-color: #CC5833;
+            --text-color: #1A1A1A;
+            --card-bg: rgba(255, 255, 255, 0.4);
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Bio-Tech Background Pattern */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 2px 2px, rgba(46, 64, 54, 0.05) 1px, transparent 0);
+            background-size: 32px 32px;
+            z-index: -1;
+        }
+
+        header {
+            padding: 4rem 2rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            text-align: center;
+        }
+
+        .header-pre {
+            font-family: 'JetBrains Mono', monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            font-size: 0.75rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            color: var(--primary-color);
+            line-height: 1;
+        }
+
+        h1 span {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-weight: 400;
+            color: var(--text-color);
+        }
+
+        main {
+            flex: 1;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hub-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            padding-bottom: 4rem;
+        }
+
+        .app-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(46, 64, 54, 0.1);
+            padding: 2.5rem;
+            border-radius: 24px;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-card::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent-color);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: var(--transition);
+        }
+
+        .app-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-color);
+            background: #fff;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .app-card:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .icon-container {
+            width: 56px;
+            height: 56px;
+            background: var(--primary-color);
+            color: var(--bg-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            transition: var(--transition);
+        }
+
+        .app-card:hover .icon-container {
+            background: var(--accent-color);
+            transform: rotate(-5deg) scale(1.1);
+        }
+
+        .app-info h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .app-info p {
+            font-size: 0.95rem;
+            color: rgba(26, 26, 26, 0.7);
+        }
+
+        .app-meta {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: var(--primary-color);
+            opacity: 0.6;
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 4px;
+        }
+
+        footer {
+            padding: 3rem 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(46, 64, 54, 0.05);
+        }
+
+        footer p {
+            color: var(--primary-color);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        footer span {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1rem;
+        }
+
+        /* Responsive Tweaks */
+        @media (max-width: 600px) {
+            header { padding: 2rem 1rem; }
+            .hub-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <span class="header-pre">Sistema de Control Central</span>
+        <h1>Mis <span>Aplicaciones</span></h1>
+    </header>
+
+    <main>
+        <div class="hub-grid">
+            <!-- MotorMaster -->
+            <a href="https://github.com/Dowhi/MotorMaster" class="app-card">
+                <div class="icon-container">
+                    <i data-lucide="gauge"></i>
+                </div>
+                <div class="app-info">
+                    <h2>MotorMaster</h2>
+                    <p>Gestión avanzada de mantenimiento vehicular y telemetría de flota.</p>
+                </div>
+                <div class="app-meta">
+                    <div><span class="status-dot"></span> v2.4.0</div>
+                    <div>Core System</div>
+                </div>
+            </a>
+
+            <!-- CRONICOM -->
+            <a href="#" class="app-card">
+                <div class="icon-container">
+                    <i data-lucide="activity"></i>
+                </div>
+                <div class="app-info">
+                    <h2>CRONICOM</h2>
+                    <p>Monitorización en tiempo real y registro cronológico de eventos críticos.</p>
+                </div>
+                <div class="app-meta">
+                    <div><span class="status-dot"></span> v1.1.2</div>
+                    <div>Realtime</div>
+                </div>
+            </a>
+
+            <!-- TAppXI-Basic -->
+            <a href="#" class="app-card">
+                <div class="icon-container">
+                    <i data-lucide="map-pin"></i>
+                </div>
+                <div class="app-info">
+                    <h2>TAppXI-Basic</h2>
+                    <p>Módulo simplificado de logística y geolocalización de activos.</p>
+                </div>
+                <div class="app-meta">
+                    <div><span class="status-dot"></span> Stable</div>
+                    <div>Logistics</div>
+                </div>
+            </a>
+
+            <!-- tappxi-web-réplica -->
+            <a href="#" class="app-card">
+                <div class="icon-container">
+                    <i data-lucide="layers"></i>
+                </div>
+                <div class="app-info">
+                    <h2>tappxi-web-réplica</h2>
+                    <p>Entorno de espejado y validación recursiva para sistemas TAppXI.</p>
+                </div>
+                <div class="app-meta">
+                    <div><span class="status-dot"></span> Mirror</div>
+                    <div>Validation</div>
+                </div>
+            </a>
+
+            <!-- Tarivilla Portal -->
+            <a href="https://tarivilla.netlify.app/" target="_blank" class="app-card">
+                <div class="icon-container">
+                    <i data-lucide="layout"></i>
+                </div>
+                <div class="app-info">
+                    <h2>Tarivilla Portal</h2>
+                    <p>Portal externo de servicios integronómicos y gestión residencial.</p>
+                </div>
+                <div class="app-meta">
+                    <div><span class="status-dot"></span> Online</div>
+                    <div>External</div>
+                </div>
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 HUB MASTER | Desplegado con <span>Elegancia Orgánica</span></p>
+    </footer>
+
+    <script>
+        // Iniciar Lucide Icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
